@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#080a12" />
+  <title>NexusWeb — Comunități de gaming</title>
+  <script type="module" crossorigin src="/assets/index-CkhC0uXx.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CCajZy_3.css">
+</head>
+<body>
+  <div id="auth-screen" class="auth-screen">
+    <section class="auth-showcase" aria-label="Despre NexusWeb">
+      <div class="showcase-brand" aria-label="NexusWeb">
+        <span class="brand-glyph">N<span>✦</span></span>
+        <span><strong>NEXUSWEB</strong><small>GAMING COMMUNITIES</small></span>
+      </div>
+      <div class="showcase-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> URMĂTOAREA TA POVESTE ÎNCEPE AICI</p>
+        <h2>Mai mult decât un joc.<br /><span>O lume a ta.</span></h2>
+        <p class="showcase-description">Descoperă comunități de gaming, găsește-ți echipa și construiește spațiul tău pentru jocurile preferate.</p>
+        <div class="showcase-stats" aria-label="Valorile comunității">
+          <div><strong>01</strong><span>Comunitate</span></div>
+          <i></i>
+          <div><strong>24/7</strong><span>Povești live</span></div>
+          <i></i>
+          <div><strong>∞</strong><span>Posibilități</span></div>
+        </div>
+      </div>
+      <div class="showcase-orbit orbit-one"></div>
+      <div class="showcase-orbit orbit-two"></div>
+      <div class="showcase-footer"><span class="status-dot"></span> NEXUSWEB <span class="showcase-footer-divider">/</span> COMUNITĂȚI DE GAMING</div>
+    </section>
+    <div class="auth-card">
+      <div class="auth-card-top"><span class="auth-mobile-brand">N<span>✦</span> NEXUSWEB</span><span class="secure-label"><span></span> ACCES SECURIZAT</span></div>
+      <p class="eyebrow auth-eyebrow">BINE AI REVENIT</p>
+      <h1>Intră în <span>NexusWeb.</span></h1>
+      <p class="muted">Conectează-te și continuă-ți povestea.</p>
+      <form id="auth-form">
+        <label for="auth-email">Email</label>
+        <input id="auth-email" type="email" placeholder="nume@email.com" required autocomplete="email" />
+        <label for="auth-password">Parolă</label>
+        <input id="auth-password" type="password" placeholder="Minimum 6 caractere" required minlength="6" autocomplete="current-password" />
+        <div id="auth-error" class="auth-error" role="alert"></div>
+        <button type="submit" id="auth-submit" class="primary-btn full"><span>Intră în comunitate</span><span aria-hidden="true">↗</span></button>
+      </form>
+      <div class="auth-switch"><span id="auth-switch-prompt">Ești nou în oraș?</span><button id="auth-toggle" class="text-btn">Creează un cont</button></div>
+      <button id="auth-demo" class="text-btn hidden" type="button">Continuă în modul demo local</button>
+      <p class="tiny-note">Prototip local: conturile sunt păstrate doar în acest browser. Nu folosi o parolă reală.</p>
+      <div class="auth-card-footer"><span>© NEXUSWEB</span><span>FĂCUT PENTRU COMUNITATE</span></div>
+    </div>
+  </div>
+
+  <div id="app" class="app hidden">
+    <aside class="server-rail">
+      <div class="rail-logo" title="NexusWeb">N<span>✦</span></div>
+      <div class="rail-divider"></div>
+      <button class="server-icon direct-messages-button" title="Mesaje directe și prieteni" aria-label="Deschide mesaje directe și prieteni" id="direct-messages-button" type="button">✉</button>
+      <span class="community-icon-wrap" data-tooltip="NexusWeb">
+        <button class="server-icon selected" aria-label="Comunitatea NexusWeb" data-community-id="legacy">NW</button>
+      </span>
+      <div id="community-icons" class="community-icons"></div>
+      <button class="server-icon add-server" title="Creează comunitate" aria-label="Creează comunitate" id="add-server">+</button>
+      <button class="server-icon" title="Hartă live" aria-label="Deschide harta live" id="game-map-button">⌖</button>
+      <div class="rail-spacer"></div>
+      <button class="server-icon user-rail" title="Profil" id="profile-button">✦</button>
+    </aside>
+
+    <aside class="channel-sidebar">
+      <div class="server-heading">
+        <div class="server-brand"><span class="server-brand-mark" id="active-community-mark">N</span><span class="server-brand-copy"><span class="server-brand-title"><strong id="active-community-name">NexusWeb</strong><span class="server-tag hidden" id="active-community-tag"></span></span><small id="active-community-game">FIVEM COMMUNITY</small></span></div>
+        <div class="server-heading-actions">
+          <button class="icon-btn server-analytics-btn" id="server-analytics-menu" type="button" title="Analiză server" aria-label="Deschide Analiză server">▤</button>
+          <button class="icon-btn" id="server-menu" type="button" title="Setări comunitate" aria-label="Setări comunitate">⚙</button>
+        </div>
+      </div>
+      <div class="server-status" id="community-presence" data-presence-state="offline">
+        <span class="status-dot" data-presence-dot></span>
+        <span data-community-label>Comunitate offline</span>
+        <span class="status-count" id="community-presence-count">0 ONLINE</span>
+      </div>
+      <div class="sidebar-scroll">
+        <div class="category"><span>INFORMAȚII</span><button class="tiny-plus" data-add-channel>+</button></div>
+        <button class="channel active" data-channel="bun-venit"><span class="hash">#</span> bun-venit</button>
+        <button class="channel" data-channel="anunturi"><span class="hash">#</span> anunturi</button>
+        <button class="channel" data-channel="regulament"><span class="hash">#</span> regulament</button>
+        <div class="category"><span>COMUNITATE</span><button class="tiny-plus" data-add-channel>+</button></div>
+        <button class="channel" data-channel="chat-general"><span class="hash">#</span> chat-general</button>
+        <button class="channel" data-channel="media"><span class="hash">#</span> media</button>
+        <button class="channel" data-channel="suport"><span class="hash">#</span> suport</button>
+        <button class="channel" data-channel="propuneri"><span class="hash">#</span> propuneri</button>
+        <button class="channel" data-channel="raporteaza-buguri"><span class="hash">#</span> raportează-buguri</button>
+        <button class="channel" data-channel="marketplace"><span class="hash">#</span> marketplace</button>
+        <div class="category"><span>SANCȚIUNI</span><button class="tiny-plus" data-add-channel>+</button></div>
+        <button class="channel" data-channel="cereri-unban"><span class="hash">#</span> cereri-unban</button>
+        <button class="channel" data-channel="reclamatii-staff"><span class="hash">#</span> reclamații-staff</button>
+        <div class="category"><span>VOICE CHANNELS <small class="coming-soon-tag">LIVEKIT</small></span><button class="tiny-plus" data-add-voice title="Adaugă un canal voice">+</button></div>
+        <button class="channel voice-channel" data-voice="General"><span class="voice-icon">◖))</span> General <span class="voice-count">0</span></button>
+        <button class="channel voice-channel" data-voice="Poliție"><span class="voice-icon">◖))</span> Poliție <span class="voice-count">0</span></button>
+        <button class="channel voice-channel" data-voice="SMURD"><span class="voice-icon">◖))</span> SMURD <span class="voice-count">0</span></button>
+        <button class="channel voice-channel" data-voice="Mecanici"><span class="voice-icon">◖))</span> Mecanici <span class="voice-count">0</span></button>
+        <button class="channel voice-channel" data-voice="Staff"><span class="voice-icon">◖))</span> Staff <span class="voice-count">0</span></button>
+      </div>
+      <div class="account-bar">
+        <div class="avatar me-avatar">N</div>
+        <div class="account-name">
+          <strong id="account-name">Membru Nexus</strong>
+          <small data-presence-label><i class="status-dot account-status-dot" data-presence-dot></i><span>Offline</span></small>
+        </div>
+        <button class="icon-btn" id="settings-button" title="Setări">⚙</button>
+        <button class="icon-btn" id="logout-button" title="Deconectare">↪</button>
+      </div>
+    </aside>
+
+    <section class="dashboard-home" id="dashboard-widgets" aria-label="Panou principal al comunității">
+      <header class="dashboard-welcome">
+        <p class="eyebrow"><span class="eyebrow-line"></span> SPAȚIUL TĂU DE GAMING</p>
+        <h1>Bine ai venit în <span id="dashboard-community-name">NexusWeb</span></h1>
+        <p>Vezi noutățile comunității, deschide un canal sau continuă conversația.</p>
+      </header>
+      <section class="dashboard-feature-grid" aria-label="Anunțuri și regulament">
+        <article class="dashboard-feature-card">
+          <div class="dashboard-cover dashboard-cover-news" aria-hidden="true"><span>✦</span><i></i></div>
+          <div class="dashboard-feature-copy">
+            <span class="dashboard-card-kicker">NOUTĂȚI · COMUNITATE</span>
+            <h2>Anunțuri</h2>
+            <p>Actualizări și informații importante de la echipa comunității, într-un singur loc.</p>
+            <button type="button" data-dashboard-channel="anunturi">Deschide anunțurile <span aria-hidden="true">↗</span></button>
+          </div>
+        </article>
+        <article class="dashboard-feature-card">
+          <div class="dashboard-cover dashboard-cover-rules" aria-hidden="true"><span>⌘</span><i></i></div>
+          <div class="dashboard-feature-copy">
+            <span class="dashboard-card-kicker">GHIDUL COMUNITĂȚII</span>
+            <h2>Regulament</h2>
+            <p>Regulile și recomandările care ajută comunitatea să rămână un loc primitor.</p>
+            <button type="button" data-dashboard-channel="regulament">Citește regulamentul <span aria-hidden="true">↗</span></button>
+          </div>
+        </article>
+      </section>
+      <section class="dashboard-community-section" aria-labelledby="dashboard-shortcuts-title">
+        <div class="dashboard-section-heading">
+          <div><span class="dashboard-card-kicker">INTRĂ ÎN ACȚIUNE</span><h2 id="dashboard-shortcuts-title">Spațiile comunității</h2></div>
+          <span class="dashboard-section-note">Alege un canal</span>
+        </div>
+        <div class="dashboard-shortcut-grid">
+          <button type="button" class="dashboard-shortcut-card" data-dashboard-channel="chat-general"><span class="dashboard-shortcut-icon">✧</span><strong>Chat general</strong><small>Discută cu toată lumea</small></button>
+          <button type="button" class="dashboard-shortcut-card" data-dashboard-channel="media"><span class="dashboard-shortcut-icon">▧</span><strong>Media</strong><small>Momente și capturi</small></button>
+          <button type="button" class="dashboard-shortcut-card" data-dashboard-channel="suport"><span class="dashboard-shortcut-icon">⌁</span><strong>Suport</strong><small>Primește ajutor</small></button>
+          <button type="button" class="dashboard-shortcut-card" data-dashboard-channel="propuneri"><span class="dashboard-shortcut-icon">✎</span><strong>Propuneri</strong><small>Împărtășește o idee</small></button>
+          <button type="button" class="dashboard-shortcut-card" data-dashboard-channel="marketplace"><span class="dashboard-shortcut-icon">◇</span><strong>Marketplace</strong><small>Descoperă oferte</small></button>
+        </div>
+      </section>
+      <section class="dashboard-community-section" aria-labelledby="dashboard-highlights-title">
+        <div class="dashboard-section-heading">
+          <div><span class="dashboard-card-kicker">DESCOPERĂ COMUNITATEA</span><h2 id="dashboard-highlights-title">Noutăți și activitate</h2></div>
+          <span class="dashboard-section-note">Intră direct în conversație</span>
+        </div>
+        <div class="dashboard-highlight-grid">
+          <button type="button" class="dashboard-highlight-card" data-dashboard-channel="anunturi">
+            <span class="dashboard-highlight-icon">✦</span><span><strong>Noutăți de la staff</strong><small>Actualizări, anunțuri și informații importante</small></span><span aria-hidden="true">↗</span>
+          </button>
+          <button type="button" class="dashboard-highlight-card" data-dashboard-channel="marketplace">
+            <span class="dashboard-highlight-icon">◇</span><span><strong>Marketplace</strong><small>Oferte și lucruri împărtășite de comunitate</small></span><span aria-hidden="true">↗</span>
+          </button>
+          <button type="button" class="dashboard-highlight-card" data-dashboard-channel="chat-general">
+            <span class="dashboard-highlight-icon">⌁</span><span><strong>Jucători online</strong><small>Salută comunitatea în chatul general</small></span><span aria-hidden="true">↗</span>
+          </button>
+        </div>
+      </section>
+      <section class="dashboard-community-section" aria-labelledby="dashboard-social-title">
+        <div class="dashboard-section-heading">
+          <div><span class="dashboard-card-kicker">RĂMÂI CONECTAT</span><h2 id="dashboard-social-title">Comunitate și jucători</h2></div>
+          <span class="dashboard-section-note" id="dashboard-social-community">NexusWeb</span>
+        </div>
+        <div class="dashboard-social-grid" id="dashboard-social-links" aria-live="polite">
+          <p class="dashboard-social-empty">Conturile comunității nu au fost adăugate încă.</p>
+        </div>
+      </section>
+      <section class="dashboard-profile-promo" aria-label="Profil de jucător">
+        <span class="dashboard-highlight-icon">♙</span>
+        <div><span class="dashboard-card-kicker">PROFIL DE JUCĂTOR</span><h2>Arată comunității unde te găsește</h2><p>Adaugă linkurile tale TikTok și YouTube din setările profilului. Ele apar lângă mesajele tale în chat.</p></div>
+        <button type="button" class="dashboard-profile-button" id="dashboard-edit-profile">Editează profilul <span aria-hidden="true">↗</span></button>
+      </section>
+    </section>
+
+    <main class="main-panel">
+      <header class="topbar">
+        <div class="current-channel"><span class="hash large-hash" id="header-icon">#</span><strong id="channel-title">bun-venit</strong><span class="top-divider"></span><span class="channel-topic" id="channel-topic">Bine ai venit în Nexus RP!</span></div>
+        <div class="top-actions">
+            <button class="icon-btn" title="Descoperă comunități publice" id="browse-communities" aria-label="Descoperă comunități publice">⌕</button>
+            <button class="icon-btn" title="Aplicațiile comunității" id="community-apps-button" aria-label="Aplicațiile comunității">▦</button>
+            <button class="icon-btn" title="Activități și mini-jocuri" id="nexus-games-button" aria-label="Activități și mini-jocuri">🎮</button>
+            <button class="icon-btn" title="Evenimente, rapoarte și garaj" id="nexus-management-button" aria-label="Evenimente, rapoarte și garaj">▦</button>
+            <button class="icon-btn" title="Hartă live" id="game-map-top-button" aria-label="Deschide harta live">⌖</button>
+            <button class="icon-btn" title="Magazinul comunității (sandbox)" id="community-store-button" aria-label="Magazinul comunității">🛒</button>
+            <button class="icon-btn" title="Cerere whitelist FiveM" id="community-whitelist-button" aria-label="Cerere whitelist FiveM">✓</button>
+            <button class="icon-btn" title="Sunete chat activate" id="chat-sounds-toggle" aria-label="Dezactivează sunetele chatului" aria-pressed="true">♪</button>
+            <button class="icon-btn" title="Notificări" id="notifications" aria-label="Notificări">♧</button>
+          <button class="icon-btn" title="Mesaje fixate" id="pinned" aria-label="Mesaje fixate">▤</button>
+          <span class="top-actions-divider"></span>
+          <button class="icon-btn members-toggle" title="Membri" id="members-toggle" aria-label="Membri">♙</button>
+        </div>
+      </header>
+      <section id="chat-view" class="chat-view">
+        <section id="nexus-stories" class="nexus-stories" aria-label="Story-uri din canalul general" hidden></section>
+        <div class="welcome-block">
+          <div class="welcome-symbol">N<span>✦</span></div>
+          <p class="eyebrow">BINE AI VENIT ÎN</p>
+          <h2>Nexus <span>RP</span></h2>
+          <p>Comunitatea ta FiveM. Respectă regulile, cunoaște-ți echipa și scrie-ți povestea.</p>
+          <div class="welcome-pills"><span>✦ Roleplay</span><span>◉ Comunitate</span><span>⌁ Evenimente</span></div>
+        </div>
+        <div id="messages" class="messages"></div>
+      </section>
+      <form id="message-form" class="composer">
+        <button type="button" class="composer-add" id="attach-button" title="Atașează imagini" aria-label="Atașează imagini">+</button>
+        <input id="attachment-input" type="file" accept="image/png,image/jpeg,image/webp,image/gif" multiple hidden />
+        <span id="attachment-count" class="attachment-count" hidden aria-live="polite"></span>
+        <input id="message-input" autocomplete="off" placeholder="Trimite un mesaj în #bun-venit" maxlength="1500" />
+        <button type="button" class="composer-tool" id="emoji-button" title="GIF-uri, stickere și emoji" aria-label="GIF-uri, stickere și emoji" aria-expanded="false" aria-controls="emoji-picker">☺</button>
+        <button type="submit" class="send-button" title="Trimite mesaj">➤</button>
+        <div id="emoji-picker" class="emoji-picker media-picker hidden" role="dialog" aria-label="GIF-uri, stickere și emoji">
+          <div class="media-picker-tabs" role="tablist" aria-label="Tip media">
+            <button type="button" class="media-picker-tab" role="tab" id="picker-tab-gif" aria-controls="picker-content" aria-selected="false" data-picker-tab="gif">GIF-uri</button>
+            <button type="button" class="media-picker-tab" role="tab" id="picker-tab-sticker" aria-controls="picker-content" aria-selected="false" data-picker-tab="sticker">Stickere</button>
+            <button type="button" class="media-picker-tab active" role="tab" id="picker-tab-emoji" aria-controls="picker-content" aria-selected="true" data-picker-tab="emoji">Emoji</button>
+          </div>
+          <label class="media-picker-search">
+            <span aria-hidden="true">⌕</span>
+            <input id="media-picker-search" type="search" autocomplete="off" placeholder="Caută emoji" aria-label="Caută emoji" />
+          </label>
+          <div id="picker-content" class="media-picker-content" role="tabpanel" aria-labelledby="picker-tab-emoji"></div>
+          <div class="gif-attribution hidden" id="gif-attribution">GIF-uri oferite de Tenor</div>
+        </div>
+      </form>
+      <div class="disclaimer"><span class="status-dot"></span> Nexus RP <span>•</span> prototip de interfață — chatul este salvat local pe acest dispozitiv</div>
+    </main>
+
+    <aside id="members-panel" class="members-panel">
+      <div class="members-title">MEMBRI — <span id="member-total">4</span></div>
+      <div class="member-group">STAFF — 2</div>
+      <div class="member"><div class="avatar staff-avatar">N</div><div><strong>Nexus Owner</strong><small><i class="role-dot purple"></i> Fondator</small></div></div>
+      <div class="member"><div class="avatar mod-avatar">M</div><div><strong>Moderator</strong><small><i class="role-dot blue"></i> Staff</small></div></div>
+      <div class="member-group">ONLINE — 2</div>
+      <div class="member"><div class="avatar user-avatar">R</div><div><strong>RoleplayFan</strong><small>Membru</small></div></div>
+      <div class="member"><div class="avatar user-avatar alt">F</div><div><strong>FiveM Player</strong><small>Membru</small></div></div>
+      <div class="member-self"><span class="status-dot" data-presence-dot></span><span data-self-presence-label>Tu ești offline</span></div>
+    </aside>
+  </div>
+
+  <div id="toast" class="toast" role="status"></div>
+  <section id="voice-screen-shares" class="voice-screen-shares hidden" aria-label="Ecrane partajate în canalul voice" aria-live="polite"></section>
+  <div id="voice-dock" class="voice-dock hidden">
+    <div class="voice-live"><span class="pulse"></span><div><strong id="voice-room-name">General</strong><small>Conectat · audio LiveKit</small></div></div>
+    <div class="voice-controls">
+      <button id="mute-button" title="Microfon">🎙</button>
+      <button id="deafen-button" title="Dezactivează sunetul">🎧</button>
+      <button id="screen-share-button" title="Partajează ecranul" aria-label="Partajează ecranul" disabled>▣</button>
+      <button id="leave-voice" class="leave-voice" title="Deconectare">☎</button>
+    </div>
+  </div>
+  <div id="modal-backdrop" class="modal-backdrop hidden">
+    <div class="modal-card" role="dialog" aria-modal="true">
+      <button id="modal-close" class="modal-close" type="button" aria-label="Închide">×</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+</body>
+</html>
